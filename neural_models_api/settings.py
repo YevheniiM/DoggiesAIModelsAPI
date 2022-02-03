@@ -51,6 +51,8 @@ INSTALLED_APPS = [
 
     'breeds_prediction',
     'object_detection',
+    
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
