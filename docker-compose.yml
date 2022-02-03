@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:12
+    container_name: neural_postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    env_file:
+      - ./.env
+    ports:
+      - "5434:5432"
+  redis:
+    image: redis:alpine
+    container_name: neural_redis
+  web:
+    build: .
+    container_name: neural_django
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./:/code
+    ports:
+      - "8001:8000"
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
