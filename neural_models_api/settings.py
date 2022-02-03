@@ -85,6 +85,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 WSGI_APPLICATION = 'neural_models_api.wsgi.application'
+ASGI_APPLICATION = 'neural_models_api.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
