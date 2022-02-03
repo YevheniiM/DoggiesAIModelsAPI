@@ -1,10 +1,10 @@
 from django.http import JsonResponse, HttpResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from breeds_prediction.ai_logic.breed_prediction import predict_breed_transfer
 
 
-@csrf_exempt
+@ensure_csrf_cookie
 def predict_breed(request):
     if request.method == 'POST':
         print('predicting the dog breed', flush=True)
