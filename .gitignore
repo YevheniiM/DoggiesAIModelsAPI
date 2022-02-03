@@ -138,4 +138,5 @@ dmypy.json
 .Dockerfile.swp
 
 # AI models
-ai/*
+breeds_prediction/ai_models/*
+object_detection/ai_models/*
