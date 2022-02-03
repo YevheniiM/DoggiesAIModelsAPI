@@ -144,7 +144,7 @@ else:
     }
     AWS_LOCATION = 'static/'
 
-    AWS_STORAGE_BUCKET_NAME = 'neural-network-models'
+    AWS_STORAGE_BUCKET_NAME = 'doggies-bot'
     AWS_S3_ENDPOINT_URL = 'https://{}.fra1.digitaloceanspaces.com'.format(AWS_STORAGE_BUCKET_NAME)
     STATIC_URL = '%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
 
