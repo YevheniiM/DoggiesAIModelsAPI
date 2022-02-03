@@ -6,7 +6,7 @@ from breeds_prediction.ai_logic.breed_prediction import predict_breed_transfer
 
 @csrf_exempt
 def predict_breed(request):
-    if request.POST:
+    if request.method == 'POST':
         print('predicting the dog breed', flush=True)
         image = request.FILES.get('image_to_predict')
         breed = predict_breed_transfer(image=image.read())
