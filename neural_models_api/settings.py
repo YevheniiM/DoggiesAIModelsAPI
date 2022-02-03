@@ -148,8 +148,8 @@ else:
     AWS_S3_ENDPOINT_URL = 'https://{}.fra1.digitaloceanspaces.com'.format(AWS_STORAGE_BUCKET_NAME)
     STATIC_URL = '%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
 
-    STATICFILES_STORAGE = 'dtb.custom_storages.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'dtb.custom_storages.MediaStorage'
+    STATICFILES_STORAGE = 'neural_models_api.custom_storages.StaticStorage'
+    DEFAULT_FILE_STORAGE = 'neural_models_api.custom_storages.MediaStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
