@@ -17,7 +17,7 @@ class BreedPredictionAPI(APIView):
             # path = default_storage.save(os.path.join('tmp/', image.name), image)
             # breed = predict_breed_transfer_task.delay(path)
             breed = predict_breed_transfer(image=image.read())
-            return JsonResponse(data={'breed': breed.get()}, status=200)
+            return JsonResponse(data={'breed': breed}, status=200)
         except Exception as ex:
             print("Error:", ex)
             return HttpResponse(status=400)
