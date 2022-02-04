@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
     'breeds_prediction',
     'object_detection',
-    
+
     'rest_framework',
 ]
 
@@ -171,3 +171,5 @@ CELERY_TASK_DEFAULT_QUEUE = 'default'
 
 MODELS_PATH = os.getenv("MODELS_PATH", default='/code/breeds_prediction/ai_models/')
 # IMAGES_PATH = os.getenv("IMAGES_PATH", default='/media/images/')
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
