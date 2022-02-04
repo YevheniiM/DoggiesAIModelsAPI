@@ -1,6 +1,5 @@
 from breeds_prediction.ai_logic.breed_prediction import predict_breed_transfer
 from neural_models_api.celery import app
-from neural_models_api.custom_storages import default_file_storage
 
 
 @app.task
