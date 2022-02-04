@@ -29,6 +29,17 @@ services:
       - ./.env
     depends_on:
       - db
+  celery:
+    build: .
+    container_name: neural_celery
+    command: celery -A neural_models_api worker -P solo --loglevel=INFO
+    volumes:
+      - ./:/code
+    env_file:
+      - ./.env
+    depends_on:
+      - redis
+      - web
 
 volumes:
   postgres_data:
