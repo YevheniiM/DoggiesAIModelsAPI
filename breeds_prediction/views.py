@@ -13,6 +13,6 @@ class BreedPredictionAPI(APIView):
     def post(self, request):
         print('predicting the dog breed', flush=True)
         image = request.FILES.get('image_to_predict')
-        url = default_storage.save(os.path.join('tmp/', image.name), image)
+        url = default_storage.save(os.path.join('files/tmp/', image.name), image)
         breed = predict_breed_transfer_task.delay(url)
         return JsonResponse(data={'breed': breed.get()}, status=200)
