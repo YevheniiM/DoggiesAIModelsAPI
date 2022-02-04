@@ -9,6 +9,7 @@ from django.conf import settings
 from django.core.files.storage import default_storage
 from torch import optim
 
+
 class BreedPredictionModel:
     def __init__(self):
         self.model = models.vgg16()
