@@ -90,5 +90,3 @@ def predict_breed_transfer(img_path=None, image=None, top=2):
     # return [AiConfig.class_names[i] for i in indices.tolist()[0][:top]]
     return BreedsPredictionConfig.class_names[breed]
 
-# with open("/tmp/husky-10.jpeg", 'rb') as f:
-#     print(predict_breed_transfer(image=f.read()))
