@@ -12,7 +12,11 @@ from breeds_prediction.tasks import predict_breed_transfer_task
 class BreedPredictionAPI(APIView):
     def post(self, request):
         print('predicting the dog breed', flush=True)
-        image = request.FILES.get('image_to_predict')
-        path = default_storage.save(os.path.join('files/tmp/', image.name), image)
-        breed = predict_breed_transfer_task.delay(default_storage.url(path))
-        return JsonResponse(data={'breed': breed.get()}, status=200)
+        try:
+            image = request.FILES.get('image_to_predict')
+            path = default_storage.save(os.path.join('tmp/', image.name), image)
+            breed = predict_breed_transfer_task.delay(path)
+            return JsonResponse(data={'breed': breed.get()}, status=200)
+        except Exception as ex:
+            print("Error:", ex)
+            return HttpResponse(status=400)
