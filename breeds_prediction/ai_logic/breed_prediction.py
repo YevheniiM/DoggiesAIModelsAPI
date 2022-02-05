@@ -87,6 +87,7 @@ def predict_breed_transfer(img_path=None, image=None, top=2):
     predict = BreedsPredictionConfig.model(image)
     # values, indices = torch.topk(predict.data.cpu(), top, sorted=True)
     breed = predict.data.cpu().argmax()
+    print(f"predicted breed: {breed}")
     # return [AiConfig.class_names[i] for i in indices.tolist()[0][:top]]
     return BreedsPredictionConfig.class_names[breed]
 
